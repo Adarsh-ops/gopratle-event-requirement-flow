@@ -56,7 +56,7 @@ cd backend
 npm install
 ```
 
-Copy `.env.example` to `.env` and replace `MONGODB_URI` with your actual MongoDB connection string. Do not commit `.env` or share database credentials in your screen recording.
+Copy `.env.example` to `.env` and replace `MONGODB_URI` with your actual MongoDB connection string. Never commit `.env` or expose database credentials.
 
 ```bash
 npm run dev
@@ -170,40 +170,7 @@ For MongoDB Atlas, create a database user and allow the deployed host to reach t
 - [ ] Confirm the frontend origin is in `FRONTEND_URLS`.
 - [ ] Test mobile layout and browser refresh.
 - [ ] Verify each success screen shows a reference code and that the document is saved in MongoDB.
-- [ ] Remove any local test records that contain real personal information before recording.
-
-## Suggested 5–7 minute recording outline
-
-**0:00–0:35 — Brief understanding**
-- Explain that the problem is to capture an event requirement and route it under planner, performer or crew.
-- Call out your assumption: four steps are basics, category details, requirements/budget, and review/submit.
-
-**0:35–2:00 — Frontend walkthrough**
-- Show the responsive form and progress stepper.
-- Select each category to show the questions change.
-- Show single-date/date-range behaviour, multi-select requirements and editable review screen.
-- Demonstrate an invalid date range or a missing required field.
-
-**2:00–3:30 — Backend and API**
-- Walk through `backend/src/validation.js` (category-specific Zod schemas and date checks).
-- Walk through `backend/src/app.js` (POST `/api/requirements`, validation, rate limit, CORS/Helmet, status codes).
-- Use the browser Network panel to show the POST request and its `201` response with `referenceCode`.
-
-**3:30–4:30 — MongoDB flow**
-- Show `backend/src/Requirement.js` and the saved document in MongoDB Atlas.
-- Point out `category`, `details`, timestamps and `referenceCode`.
-- Explain that the API returns only a receipt rather than exposing submitted event details through a public read endpoint.
-
-**4:30–5:30 — Testing and edge cases**
-- Run `npm test` in the backend.
-- Mention invalid ranges, category-specific required fields, request size limit, rate limiting, CORS and API failure feedback.
-
-**5:30–6:15 — Limitations and next improvements**
-- Explain that there is no authentication or organizer dashboard because neither is in the assignment scope.
-- Improvements: server-side spam/abuse checks, authenticated dashboard, richer date/time fields, structured audit logs, and end-to-end tests.
-- Close with deployed frontend/API URLs and the repository.
-
-Keep the recording truthful: show the actual deployed site and actual database record after deployment. Do not show credentials or secrets.
+- [ ] Use synthetic test data only, and remove any sensitive test data before sharing the application.
 
 ## Design and implementation assumptions
 
@@ -217,4 +184,4 @@ Keep the recording truthful: show the actual deployed site and actual database r
 
 ## Before submission
 
-Replace all example/local URLs with your actual deployed URLs, test the live API and database, push both `frontend/` and `backend/` into the same GitHub repository, and record the demonstration from the real running application. Never commit `.env` files or actual database credentials.
+Replace example URLs with your deployed URLs, test the live API and database, and ensure both `frontend/` and `backend/` are present in the same GitHub repository. Never commit `.env` files or actual database credentials.
