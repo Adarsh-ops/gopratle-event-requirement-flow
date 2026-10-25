@@ -1,0 +1,23 @@
+{
+  "name": "event-requirements-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "4.21.2",
+    "express-rate-limit": "7.5.0",
+    "helmet": "8.1.0",
+    "mongoose": "8.18.0",
+    "zod": "3.25.76",
+    "dotenv": "16.6.1"
+  }
+}

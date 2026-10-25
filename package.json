@@ -1,0 +1,11 @@
+{
+  "name": "gopratle-event-requirement-assignment",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack event requirement posting flow built for the GoPratle internship assignment.",
+  "scripts": {
+    "dev:api": "npm --prefix backend run dev",
+    "dev:web": "npm --prefix frontend run dev",
+    "test:api": "npm --prefix backend test"
+  }
+}
