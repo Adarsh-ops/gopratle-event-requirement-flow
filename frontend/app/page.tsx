@@ -450,7 +450,37 @@ export default function Home() {
 
             <div className={`form-actions${step === 1 ? ' first-step-actions' : ''}`}>
               {step > 1 ? <button type="button" className="button button-secondary" onClick={goBack} disabled={isSubmitting}><ArrowLeft size={16} /> Back</button> : <span className="action-note"><span className="required-mark">*</span> Required fields</span>}
-              {step < 4 ? <button type="button" className="button button-primary" onClick={goNext}>Continue <ArrowRight size={16} /></button> : <button type="submit" className="button button-primary" disabled={isSubmitting}>{isSubmitting ? <><LoaderCircle size={16} className="spin" /> Sending...</> : <>Submit requirement <Send size={15} /></>}</button>}
+              {step < 4 ? (
+                <button
+                  key={`continue-${step}`}
+                  type="button"
+                  className="button button-primary"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    goNext();
+                  }}
+                >
+                  Continue <ArrowRight size={16} />
+                </button>
+              ) : (
+                <button
+                  key="submit-requirement"
+                  type="submit"
+                  className="button button-primary"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <LoaderCircle size={16} className="spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Submit requirement <Send size={15} />
+                    </>
+                  )}
+                </button>
+              )}
             </div>
           </form>
           <div className="form-bottom"><span><Clock3 size={14} /> About 2 minutes to complete</span><span><ShieldCheck size={14} /> Your details stay with this request</span></div>
